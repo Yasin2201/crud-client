@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-
+import { Link } from "react-router-dom"
 
 const Home = () => {
     const [articles, setArcticles] = useState()
@@ -30,6 +30,10 @@ const Home = () => {
                     <div key={article.id}>
                         <h3>{article.title}</h3>
                         <p>{article.article}</p>
+                        <Link to={`/${article.id}`}>
+                            <button>View</button>
+                        </Link>
+                        <button>Delete</button>
                     </div>
                 )
             })
