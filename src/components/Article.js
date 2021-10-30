@@ -24,8 +24,26 @@ const Article = () => {
         getArticle()
     }, [id])
 
-    const submitEdit = () => {
-        console.log("DONE")
+    const submitEdit = async (e) => {
+        e.preventDefault()
+        try {
+            const response = await fetch(`http://localhost:4000/${id}`, {
+                method: "PUT",
+                body: JSON.stringify(article),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            }
+            );
+            const data = await response.json()
+            if (!data.error) {
+                alert(data.alert)
+            } else {
+                alert(data.error)
+            }
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     return (
