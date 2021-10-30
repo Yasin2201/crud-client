@@ -22,13 +22,19 @@ const Article = () => {
             }
         }
         getArticle()
-    }, [])
+    }, [id])
 
     return (
-        <div>
-            <h3>{article.title}</h3>
-            <p>{article.article}</p>
-        </div>
+        article ?
+            <div key={article.id}>
+                <h3>{article.title}</h3>
+                <p>{article.article}</p>
+            </div>
+            :
+            <div>
+                Loading...
+            </div>
+
     )
 }
 
