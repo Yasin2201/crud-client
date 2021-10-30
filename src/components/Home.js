@@ -23,6 +23,24 @@ const Home = () => {
         getAllArticles()
     }, [])
 
+    const deleteArticle = async (id) => {
+        try {
+            const res = await fetch(`http://localhost:4000/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+            })
+            const data = await res.json()
+            console.log(data)
+            const fiilteredArticles = articles.filter((article) => article.id !== id)
+            setArcticles(fiilteredArticles)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     return (
         articles ?
             articles.map((article) => {
@@ -33,7 +51,7 @@ const Home = () => {
                         <Link to={`/${article.id}`}>
                             <button>View</button>
                         </Link>
-                        <button>Delete</button>
+                        <button onClick={() => deleteArticle(article.id)}>Delete</button>
                     </div>
                 )
             })
