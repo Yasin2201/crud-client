@@ -43,18 +43,19 @@ const Home = () => {
 
     return (
         articles ?
-            articles.map((article) => {
-                return (
-                    <div key={article.id}>
-                        <h3>{article.title}</h3>
-                        <p>{article.article}</p>
-                        <Link to={`/article/${article.id}`}>
-                            <button>View</button>
-                        </Link>
-                        <button onClick={() => deleteArticle(article.id)}>Delete</button>
-                    </div>
-                )
-            })
+            <div className="home-div">
+                {articles.map((article) => {
+                    return (
+                        <div key={article.id} className="article-card">
+                            <h3>{article.title}</h3>
+                            <Link to={`/article/${article.id}`}>
+                                <button>View</button>
+                            </Link>
+                            <button onClick={() => deleteArticle(article.id)}>Delete</button>
+                        </div>
+                    )
+                })}
+            </div>
             :
             <div>
                 Loading...

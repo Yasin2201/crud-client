@@ -4,12 +4,14 @@ const Navbar = () => {
     return (
         <nav>
             <h2>Draft Articles</h2>
-            <Link to='/new'>
-                New Article
-            </Link>
-            <Link to='/'>
-                Home
-            </Link>
+            <div className='links-div'>
+                <Link to='/new'>
+                    New Article
+                </Link>
+                <Link to='/'>
+                    Home
+                </Link>
+            </div>
         </nav>
     )
 }
