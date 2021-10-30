@@ -1,4 +1,5 @@
 import Home from "./components/Home";
+import Article from "./components/Article";
 import {
   BrowserRouter,
   Switch,
@@ -13,6 +14,9 @@ const App = () => {
           <Home />
         </Route>
 
+        <Route path="/:id">
+          <Article />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
