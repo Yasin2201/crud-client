@@ -24,12 +24,17 @@ const Article = () => {
         getArticle()
     }, [id])
 
+    const submitEdit = () => {
+        console.log("DONE")
+    }
+
     return (
         article ?
-            <div key={article.id}>
-                <h3>{article.title}</h3>
-                <p>{article.article}</p>
-            </div>
+            <form key={article.id} onSubmit={submitEdit}>
+                <input type="text" name="title" value={article.title} onChange={(e) => setArticle({ ...article, title: e.target.value })} />
+                <textarea type="text" name="article" value={article.article} onChange={(e) => setArticle({ ...article, article: e.target.value })} />
+                <button type="submit">Save Changes</button>
+            </form>
             :
             <div>
                 Loading...
