@@ -6,10 +6,12 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Home />
