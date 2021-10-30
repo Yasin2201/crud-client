@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 
 const Home = () => {
     const [articles, setArcticles] = useState()
+
     useEffect(() => {
         async function getAllArticles() {
             try {
@@ -14,19 +15,28 @@ const Home = () => {
                     },
                 })
                 const data = await res.json()
-                setArcticles(data)
+                setArcticles(data.drafts)
             } catch (error) {
                 console.error(error)
             }
         }
-
         getAllArticles()
     }, [])
 
     return (
-        <div>
-            Home
-        </div>
+        articles ?
+            articles.map((article) => {
+                return (
+                    <div key={article.id}>
+                        <h3>{article.title}</h3>
+                        <p>{article.article}</p>
+                    </div>
+                )
+            })
+            :
+            <div>
+                Loading...
+            </div>
     )
 }
 
