@@ -10,11 +10,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
 
-        <Route path="/:id">
+        <Route exact path="/:id">
           <Article />
         </Route>
       </Switch>
