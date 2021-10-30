@@ -48,7 +48,7 @@ const Home = () => {
                     <div key={article.id}>
                         <h3>{article.title}</h3>
                         <p>{article.article}</p>
-                        <Link to={`/${article.id}`}>
+                        <Link to={`/article/${article.id}`}>
                             <button>View</button>
                         </Link>
                         <button onClick={() => deleteArticle(article.id)}>Delete</button>
