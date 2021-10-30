@@ -16,16 +16,18 @@ const Article = () => {
                     },
                 })
                 const data = await res.json()
-                console.log(data)
+                setArticle(data.draft)
             } catch (error) {
                 console.error(error)
             }
         }
         getArticle()
     }, [])
+
     return (
         <div>
-            Article
+            <h3>{article.title}</h3>
+            <p>{article.article}</p>
         </div>
     )
 }
