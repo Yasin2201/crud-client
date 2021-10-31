@@ -3,7 +3,7 @@ CRUD-Client is a simple Client-side application which serves as a front-end to [
 
 ## Pre-requisites
 - [CRUD-Api](https://github.com/Yasin2201/crud-api) is required to run front-end please follow **installation guide** on the repositiory.
-*note: make sure crud-api is server is running prior to starting client*
+- *note: make sure crud-api is server is running prior to starting client*
 
 # Getting Started with Create React App
 ## Available Scripts
